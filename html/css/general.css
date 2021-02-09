@@ -1,0 +1,121 @@
+/* ESTILO CABECERA Y MENU DE NAVEGACIÓN*/
+
+div.fondo_titulo {
+    background-image: url('../img/logos/CPI.jpg');
+    height: 150px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+}
+ img.logoIZQ {
+    height: 100px;
+    width: 100px;
+    float: left;
+    box-sizing: content-box;
+}
+
+ img.logoDER {
+
+    height: 100px;
+    width : 200px;  
+    float: right;
+}
+
+ h1 {
+    margin: 0pt;
+    line-height: 100px;
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+}
+
+ header {
+    background-color: #e3e1ec;
+}
+
+body {
+    min-width: 569px;
+}
+
+nav.menu_principal {
+    border-top-width: 3px;
+    border-bottom-width: 3px;
+    border-style: solid;
+    border-right-style: none;
+    border-left-style: none;
+    color: #AAA;
+    background-color: #EEE;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 20px;
+}
+
+nav.menu_principal > ul {
+    text-align: center;
+    padding-inline-start: 0;
+}
+
+nav.menu_principal > ul > li {
+    font-family: 'Quicksand', sans-serif;
+    box-sizing: content-box; 
+    display: inline;
+    padding: 10px;
+}
+
+nav.menu_principal > ul > li > a {
+    text-decoration: none;
+    color: black;
+}
+
+nav.menu_principal > ul > li:hover {
+    background-color: #CCC;
+}
+nav.menu_principal>ul>li>a:not([href*="html"]){
+    background-color: #CCB;
+}
+
+/* --------------------------- */
+
+/* ESTILO PARTE CENTRAL (PUBLICIDAD Y CUERPO DE LA PÁGINA */
+
+div.central {
+    display: flex;
+    align-items: center;
+
+}
+div.publicidad_izquierda {
+    
+    width: 10%;
+    background-size: cover;
+    align-self: flex-start;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    
+
+}
+div.publicidad_derecha{
+    
+    width: 10%;
+    background-size: cover;
+    align-self: flex-start;
+
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+
+}
+div.publicidad_izquierda img {
+
+width: 100%;
+}
+div.publicidad_derecha img {
+
+    width: 100%;
+    }
+
+
+ /* PIE DE PAGINA */   
+
+footer {
+    margin-bottom: 20px;
+}

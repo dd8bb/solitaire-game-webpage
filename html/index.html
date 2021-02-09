@@ -1,11 +1,100 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>¡Hola mundo!</h1>
-</body>
-</html>
+
+<html lang="es-ES">
+
+	<head>
+		<title>Solitario IST</title>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="icon" href="img/favicon.gif" type="image/gif"/>
+
+		<!--BootStrap-->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+				
+		<!--CSS -->
+		<link rel="stylesheet" type="text/css" href="css/general.css">
+		<link rel="stylesheet" type="text/css" href="css/articulos.css">
+		<link rel="stylesheet" type="text/css" href="css/juegos.css">
+
+		<!-- Estilos de otras paginas -->
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+		
+	</head>
+
+	<body>
+
+		<header class="titulo_principal">
+			<div class="fondo_titulo"></div>
+				<a href="http://www.upv.es" target="_blank"><img class="logoIZQ" src="img/logos/logoUPV.png" alt="LogoUPV"  ></a>
+				<a href="http://www.etsit.upv.es" target="_blank"><img class="logoDER" src="img/logos/ETSIT_UPV.png" alt="logoETSIT"></a> 
+				<h1>Solitario Web</h1>
+		</header>
+
+		<nav class="menu_principal">
+			<ul>
+				<li><a href="#" target="_self">Juegos</a></li> 
+				<li><a href="instrucciones.html" target="_self">Cómo se juega</a></li>
+                
+                
+				
+            </ul>
+		</nav>
+		
+
+
+		<div class="central">
+
+			<div class="publicidad_izquierda">
+				<img src="img/publicidad/clickHere.jpg">
+			</div>
+
+
+			<div class="centro">
+			<!--En esta página se incluirán los juegos-->
+				
+				<!--Contenedor botones-->
+				<div class="botones">
+					<button type="button" class="btn btn-primary" id="aSolitario"><a href="solitario.html" target="mi_iframe">Solitario Classic</a></button>
+					<button type="button" class="btn btn-primary" id="aSpider"><a href="solitario_spider.html" target="mi_iframe">Solitario Spider</a></button>
+					<button type="button" class="btn btn-primary" id="aSpider2"><a href="solitario_spider_2.html" target="mi_iframe">Spider 2 colores</a></button>
+				</div>
+
+				<!--Contenedor Juego-->
+				<div class="juego">
+					<!--Elemento iframe para solitario-->
+					<iframe name="mi_iframe"></iframe>
+				</div>
+			</div> <!-- class="centro" -->
+			 
+
+			 <div class="publicidad_derecha">
+				<img src="img/publicidad/clickHere.jpg">
+			</div>
+
+		</div> <!-- class="central" -->
+
+		
+
+		<footer>
+			<hr>
+            <details>
+                <summary>Créditos</summary>
+                <ul>
+                    <li>David Tolosa Alarcón.
+                        <a href="mailto:datoal@teleco.upv.es?subject=Hola%20Amigo&body=Mensaje%20de%20%salutación">
+                            Enviar correo electrónico
+                        </a>
+                    </li>
+                </ul>
+            </details>
+		</footer>
+
+
+	</body>
+
+</html>	
