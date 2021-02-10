@@ -88,7 +88,6 @@
 				for (var i = 0; i < receptores.length; i++){
 					
 					if(receptores[i].mazo.length == 0){
-						console.log("ENTRO");
 						for (var j = 0; j < 13; j++){
 							carta = tapete.mazo[tapete.mazo.length - 1];
 							console.log(carta);
@@ -425,7 +424,6 @@
 				// Comprobar si hay alguna escalera completa en algún tapete inferior.
 				for (var i=0; i<tapetes.length; i++){
 					if (hay_escalera(tapetes[i].mazo)){
-						console.log("OJO")
 						guardar_mazo(tapetes[i]);
 					}
 				}

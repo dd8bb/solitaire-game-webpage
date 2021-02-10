@@ -14,6 +14,8 @@
 
       // paso (top y left) en pixeles de una carta a la anterior en un mazo
       let paso = 10;
+	  // init_top indica en pixeles el paso de una carta a la anterior (top) para la representación en los tapetes inferiores
+	  let init_top = 50;
 
 			// Tapetes				
 			let tapete_inicial   = document.getElementById("inicial");
@@ -65,6 +67,7 @@
 
 			// Inicio juego
 			comenzar_juego();
+			// Evento asociado a hacer click en el mazo inicial: pasar_carta
 			tapete_inicial.onclick = pasar_carta;
 
 
@@ -74,7 +77,7 @@
 			/* Esta función es activada cuando se hace click sobre el tapete inicial, pasa la carta top del mazo inicial al de sobrantes , la hace visible y draggable.*/
 				
 				if (tapete_inicial.mazo.length == 0){// Evaluamos si quedan cartas en el mazo inicial
-					mover_mazo(tapete_sobrantes,tapete_inicial);
+					mover_mazo(tapete_sobrantes,tapete_inicial); // Pasa todas las cartas de sobrantes al mazo inicial.
 				}
 				else {
 					carta = tapete_inicial.mazo[tapete_inicial.mazo.length-1]; //cogemos carta top
@@ -103,7 +106,7 @@
 				*/
 
 				num = carta.dataset["nombre"]; // Obtenemos el número de la carta
-				palo_carta = carta.dataset["palo"];
+				palo_carta = carta.dataset["palo"]; // Y el palo
 
 				if (tapete_receptor.mazo.length == 0 && num == "as"){
 					return true 
@@ -112,7 +115,7 @@
 
 					carta_anterior = tapete_receptor.mazo[tapete_receptor.mazo.length-1]; // Obtenemos la última carta en ese mazo
 					num_anterior = carta_anterior.dataset["nombre"];
-					palo_mazo = carta_anterior.dataset["palo"]; //Obtenemos el palo del mazo
+					palo_mazo = carta_anterior.dataset["palo"]; //Obtenemos el palo del mazo y número de la carta
 
 					if (palo_mazo == palo_carta){
 						//La carta es del mismo palo que el mazo
@@ -133,7 +136,7 @@
 			function se_puede_añadir_inferior(carta,tapete_receptor) {
 			/* Esta función evalúa si es posible incluir la carta en un mazo inferior en función de las condiciones
 				   del solitario para los mazos inferiores.
-				   Se entiende que si el tapete inferior está vacio se puede dejar un rey, si no la carta a dejar tiene que ser de color contrarior al color de la última carta.
+				   Se entiende que si el tapete inferior está vacio se puede dejar un rey, si no la carta a dejar tiene que ser de color contrarior al color de la última carta y de valor inferior consecutivo.
 				*/
 				color_carta = carta.dataset["color"];
 				num_carta = carta.dataset["nombre"];
@@ -144,7 +147,7 @@
 				else if (tapete_receptor.mazo.length > 0){
 
 					carta_inferior = tapete_receptor.mazo[tapete_receptor.mazo.length-1]; // Obtenemos la última carta en ese mazo
-					color_inferior = carta_inferior.dataset["color"]; // Obtenemos color carta
+					color_inferior = carta_inferior.dataset["color"]; // Obtenemos color carta y número
 					num_inferior = carta_inferior.dataset["nombre"];
 
 					if (color_carta != color_inferior && numeros.indexOf(num_carta) == numeros.indexOf(num_inferior) - 1){
@@ -158,6 +161,7 @@
 			
 
 			function ha_acabado(){
+				/* Esta función evalúa si se ha acabado el juego, siendo cuando se han colocoado los 4 mazos completos en cada mazo receptor*/
 
 				if (mazo_receptor1.length == 13 && mazo_receptor2.length == 13 && mazo_receptor3.length == 13 && mazo_receptor4.length ==13) {
 					return true
@@ -169,7 +173,7 @@
 
 			function colocar_carta(tapete,carta){
 				/* Esta función se encarga de añadir la carta al mazo y al tapete para que sea visualizada correctamente,
-				   además incrementa el contador en ese tapete y asigna la nueva procedencia de la carta.
+				   además asigna la nueva procedencia de la carta. Es utilizada en los tapetes superiores.
 				*/
 				
 
@@ -183,13 +187,13 @@
 
 			function colocar_carta_inferior(tapete,carta){
 				/* Esta función se encarga de añadir la carta al mazo de los tapetes inferiores para que sea visualizada correctamente,
-				   además incrementa el contador en ese tapet y asigna la nueva procedencia de la cartae.
+				   además asigna la nueva procedencia de la carta.
 				*/
 				
 				var length= tapete.mazo.length;
 				carta.setAttribute("data-procedencia",tapete.id);
 				tapete.mazo.push(carta);
-				init_top = 50;
+				
 				var top = init_top + length*paso;
 				top += "px";
 				carta.style.top = top;
@@ -275,7 +279,7 @@
 				
 				
 				
-				if (tapete_destino.id == "receptor1" || tapete_destino.id == "receptor2" || tapete_destino.id == "receptor3" || tapete_destino.id == "receptor4" ) {
+				if (tapete_destino.id == "receptor1" || tapete_destino.id == "receptor2" || tapete_destino.id == "receptor3" || tapete_destino.id == "receptor4") {
 					//Condición para dejar cartas en los tapetes receptores
 
 						if (procedencia_carta != "receptor1" || procedencia_carta != "receptor2" || procedencia_carta != "receptor3" || procedencia_carta != "receptor4") { // Si no proviene de ningun mazo receptor.
@@ -789,7 +793,6 @@
 			function cargar_tapete_inicial(mazo) {
 			  /* !!!!!!!!!!!!!!!!!!!!!! CODIGO !!!!!!!!!!!!!!!!!!!! */	
 				var i;
-				var init_top = 50;
 				var init_left = 10;
 
 				/* Configurar estilo cartas  del mazo */
@@ -816,7 +819,7 @@
 				function cargar_tapete_inferior(mazo_ini, tapete_destino,num_cartas){
 					/*Esta funcion coloca las cartas tapadas en un tapete inferior de acuerdo al estilo dado para la colocacion de cartas en estos tapetes*/
 					
-					var init_top = 50;
+
 
 						
 					for (i=0; i<num_cartas; i++){
